@@ -6,7 +6,7 @@ class ListItem extends StatelessWidget {
     return Container(
         child: Row(
       children: <Widget>[
-        Image.asset("assets/empty_image.png"),
+        Image.network("https://github.com/agarasul/SampleNewsApp/raw/master/empty_image.png"),
         Text(
           "Dummy title",
         ),
