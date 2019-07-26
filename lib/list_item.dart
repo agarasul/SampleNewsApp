@@ -6,12 +6,24 @@ class ListItem extends StatelessWidget {
     return Container(
         child: Row(
       children: <Widget>[
-        Image.network("https://github.com/agarasul/SampleNewsApp/raw/master/empty_image.png"),
-        Text(
-          "Dummy title",
+        Container(
+          height: 80,
+          width: 100,
+          child: Image.network(
+              "https://github.com/agarasul/SampleNewsApp/raw/master/empty_image.png"),
         ),
-        Text(
-          "Dummy description",
+        Padding(
+          padding: EdgeInsets.all(8),
+          child: Row(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                Text("Dummy title"),
+                Text("Dummy description")
+              ])
+            ],
+          ),
         )
       ],
     ));
