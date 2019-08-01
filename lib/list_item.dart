@@ -16,14 +16,16 @@ class ListItem extends StatelessWidget {
           width: 100,
           child: Image.network(article.urlToImage),
         ),
-        Padding(
-          padding: EdgeInsets.all(8),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(article.title),
-                Text(article.description)
-              ]),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(article.title),
+                  Text(article.description)
+                ]),
+          ),
         )
       ],
     ));
