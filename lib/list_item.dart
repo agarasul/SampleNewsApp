@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/entity/news.dart';
 
 class ListItem extends StatelessWidget {
+  final Article article;
+
+  ListItem(this.article);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -9,21 +14,16 @@ class ListItem extends StatelessWidget {
         Container(
           height: 80,
           width: 100,
-          child: Image.network(
-              "https://github.com/agarasul/SampleNewsApp/raw/master/empty_image.png"),
+          child: Image.network(article.urlToImage),
         ),
         Padding(
           padding: EdgeInsets.all(8),
-          child: Row(
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                Text("Dummy title"),
-                Text("Dummy description")
-              ])
-            ],
-          ),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(article.title),
+                Text(article.description)
+              ]),
         )
       ],
     ));

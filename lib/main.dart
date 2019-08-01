@@ -30,14 +30,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Article> _newsList;
+  List<Article> _newsList = new List();
 
   void getData() async {
     http.Response response = await http.get(
         "https://newsapi.org/v2/top-headlines?country=us&apiKey=821a22ad51e240fb9c131c4b00009630");
     setState(() {
-      _newsList.addAll(News.fromJson(json.decode(response.body)).articles);
+      _newsList = News.fromJson(json.decode(response.body)).articles;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.getData();
   }
 
   @override
@@ -48,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
           child: ListView.builder(
-        itemCount: 5,
+        itemCount: _newsList.length,
         itemBuilder: (context, index) => ListItem(_newsList[index]),
       )),
     );
