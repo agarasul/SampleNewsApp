@@ -22,8 +22,20 @@ class ListItem extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(article.title),
-                  Text(article.description)
+                  Text(
+                    article.title,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    maxLines: 2,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  Text(
+                    article.description,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    maxLines: 2,
+                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 10),
+                  )
                 ]),
           ),
         )
